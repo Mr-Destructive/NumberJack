@@ -6,13 +6,15 @@ int main()
 {   
 cout<<"\n\n\n\n    °°°°°°° NUMBERJACK °°°°       \n";	
 int choice;
-int i=0;
+int i=0,j;
 int n0;
 int p,n;
 int n1;
+bool check;
 const unsigned int u=10;
 int k[u];
 char name[100];
+
 cout<<"\n\n\n   Enter your name here!"<<endl;
 cin.getline(name,100);
 
@@ -32,32 +34,20 @@ cin>>n0;
   	  	do{  
                           srand(time(0));
   		                 
-  		                  for(int i=1;i<=10;i++)
-  		                  {
-  		                    k[i]=rand()%10;
-  		             
-  		             }	  
-  		             
-  		          for(i=1;i<=10;i++)           
-  		  {int j=i+1;
-  		 do{ 
-  		 
-  		  	if(k[i]==k[j])
-  		  	   {
-  		  		k[j] = rand()%10;
-  		     	 }
-  		     	 
-  		     	 	if(i>=2 ){
-		for(n=1;n!=i;n++){
-			if(k[i]==k[n]){
-				k[i]=rand()%10;}}}
-  		 
-  		     	 j=j+1;
-  		   
-  		   }while(j<=10);	
-  		  	cout<<k[i]<<"       ";
-  		  	
-  			}       		                                                                                             
+  		   for(int i=1;i<=10;i++)
+  	          {do{
+  		  n=rand()%10;
+		  check=true;
+		  for(int j=1;j<i;j++){
+                if(n==k[j]){check=false;
+                        break;}
+        }}while(!check);
+k[i]=n;
+  	        	 
+		  }	 
+		 for(i=1;i<=10;i++){
+		cout<<k[i]<<"       ";
+		 }	                                                                                             
 cout<<""<<endl;	cout<<"________________________________________________________________________|"<<endl;
 	cout<<"1       2       3       4       5       6       7       8       9      10"<<endl;
 	cout<<""<<endl;
@@ -72,7 +62,7 @@ if(k[n1]==n0)
 else{
 	cout<<"game over.."<<endl;
 	break;}
-  	  	}while(n1==k[i]);
+  	  	}while(k[n1]==n0);
   	  	cout<<""<<endl;
   	  	cout<<""<<endl;
   	  	cout<<name <<"  scored  "<< p <<"  points."<<endl;
@@ -101,4 +91,5 @@ else{
   	cout<<"Invalid..";  
 }
 }while(choice!=3);
+
  } 
