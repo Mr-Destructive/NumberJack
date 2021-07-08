@@ -26,7 +26,7 @@ do
 			a[$i]=$i	
 		done
 		echo "${a[@]} "
-		read -t 2 -p "Enter the index of your number : " x
+		read -t 5 -p "Enter the index of your number : " x
 		if [[ $? -gt 128 ]]; then 
 			c=1
 			break
