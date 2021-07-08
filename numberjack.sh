@@ -11,13 +11,14 @@ do
 		 "
 
 	read -p "Enter your choice : " ch
-	if [ $ch -eq 1 ]; then
+	if [ $ch -eq 1 ];then
 	x=0
 	c=0
 	p=0
 	read -p "Enter any number between 0 and 9 : " n
 	while [ $c -eq 0 ];
 	do
+		x=11
 		r=($(shuf -i 0-9 -n 10))
 		echo "${r[@]} "
 		for i in {1..10};
@@ -25,17 +26,18 @@ do
 			a[$i]=$i	
 		done
 		echo "${a[@]} "
-		read -t 5 -p "Enter the index of your number : " x
+		read -t 2 -p "Enter the index of your number : " x
+		if [[ $? -gt 128 ]]; then 
+			c=1
+			break
+		fi
 		if [ ${r[$(($x))-1]} -eq $n ];then
 			echo "Great"
 			((p=p+1))
 		else
-			echo -e "\nGAME OVER\n"
-			echo "You scored $p points"
 			c=1
 			break
 		fi
-		x=0
 	done
 	elif [ $ch -eq 2 ];then
 		echo "HELP: INSTRUCTIONS TO PLAY THE GAME. "
@@ -48,4 +50,9 @@ do
 	else
 		break
 fi
-done
+
+if [ $c -eq 1 ];then
+			echo -e "\nGAME OVER\n"
+			echo "You scored $p points"
+fi
+		done
