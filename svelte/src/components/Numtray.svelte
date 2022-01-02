@@ -55,6 +55,16 @@
         width:auto;
     }
     li{
+        background-color: #ff6600;
+        color: #000011;
+        font-size:33px;
+        padding:1.2%;
+        heigth: 15%;
+        width: 6.7%;
+        list-style-type:none;
+        border:1px solid #000002;
+    }
+    .sub{
         background-color: #100007;
         font-size:33px;
         color: #00ffff;
@@ -62,18 +72,8 @@
         heigth: 15%;
         width: 6.7%;
         list-style-type:none;
-        border:1px solid white;
-    }
-    .sub{
-        background-color: #ff6600;
-        font-size:33px;
-        color: #000011;
-        padding:1.2%;
-        heigth: 15%;
-        width: 6.7%;
-        list-style-type:none;
         font-weight: 500;
-        border:1px solid #000000;
+        border:1px solid #ffffff;
         cursor: pointer;
     }
     .sub:active {
