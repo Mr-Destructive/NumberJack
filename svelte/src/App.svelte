@@ -2,6 +2,7 @@
     import Tabs from './shared/Tabs.svelte'
     import Play from './components/Play.svelte'
     import Home from './components/Home.svelte'
+    import About from './components/About.svelte'
 
     let items = ['Home', 'Play', 'About'];
     let activeItem = 'Home';
@@ -21,6 +22,8 @@
         <Home/>
     {:else if activeItem === 'Play'}
         <Play/>
+    {:else if activeItem === 'About'}
+        <About/>
     {/if}
 </main>
 

@@ -5,11 +5,14 @@
     let selected=false;
 
     function generate(){
-        arr=[];
-        pos = [1,2,3,4,5,6,7,8,9,10];
-        while(arr.length < 10){
-            let r = Math.floor(Math.random() * 10);
-            if(arr.indexOf(r) === -1) arr.push(r);
+        if(num >=0 && num<=9 && num){
+            console.log(num)
+            arr=[];
+            pos = [1,2,3,4,5,6,7,8,9,10];
+            while(arr.length < 10){
+                let r = Math.floor(Math.random() * 10);
+                if(arr.indexOf(r) === -1) arr.push(r);
+            }
         }
     }
 
@@ -21,8 +24,8 @@
 </script>
 
 <div class="tray">
-    <input type="number" max=9 min=0 bind:value={num}/>
-    <button on:click={ () => generate() }>Play</button>
+    <input type="number" max=9 min=0  bind:value={num}/>
+    <button on:click={ () => generate() } class="play">Play</button>
     <h1>Points : {points}</h1>
     <ul>
         {#each arr as i}
@@ -31,7 +34,7 @@
     </ul>
     <ul>
         {#each pos as i}
-            <button class="sub" on:click={() => jack(i)} >{i}</button>
+            <li class="sub" on:click={() => jack(i)} >{i}</li>
         {/each}
     </ul>
 </div>
@@ -40,6 +43,8 @@
     .tray{
         height:auto;
         width:auto;
+        margin: 0;
+        padding: 0;
     }
     h1{
         color:white;}
@@ -51,27 +56,41 @@
     }
     li{
         background-color: #100007;
-        font-size:35px;
+        font-size:33px;
         color: #00ffff;
-        padding:3%;
+        padding:1.2%;
+        heigth: 15%;
+        width: 6.7%;
         list-style-type:none;
-        border:2px solid white;
-        height: 45px;
+        border:1px solid white;
     }
     .sub{
-        align-items: center;
-        display:flex;
-        background-color: #100007;
-        font-size:35px;
-        color: #00ffff;
-        padding:3%;
-        font-weight:500;
-        outline:none;
-        box-shadow: none;
+        background-color: #ff6600;
+        font-size:33px;
+        color: #000011;
+        padding:1.2%;
+        heigth: 15%;
+        width: 6.7%;
+        list-style-type:none;
+        font-weight: 500;
+        border:1px solid #000000;
+        cursor: pointer;
     }
     .sub:active {
         background-color:#ff6600;
         color:black;
+    }
+    .play{
+        width: 80px;
+        height: 80px;
+        color: #ccffff;
+        font-size: 35px;
+        background-color: #ff6600;
+    }
+    input{
+        width: 80px;
+        height: 80px;
+        font-size: 35px;
     }
 
     
